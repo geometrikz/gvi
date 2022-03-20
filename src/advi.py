@@ -7,6 +7,8 @@ from jax import random
 from functools import partial
 from jax.example_libraries import optimizers
 
+jax.config.update('jax_platform_name', 'cpu')
+
 from sklearn import datasets
 
 key = random.PRNGKey(0)
@@ -105,7 +107,7 @@ def advi():
 
 if __name__ == '__main__':
     # print(generate_data())
-    log = blr()
+    log = advi()
     # print(log['ELBO'][-1], log['theta'][-1])
     # x, y, coef = datasets.make_regression(n_samples=100, n_features=10, n_informative=3, bias=5, coef=True)
     # print(x.shape, y.shape, coef)
